@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="hu.local.plugins.jira" name="${project.name}" plugins-version="2">
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param>
+    <!--        <param name="plugin-banner">images/vc3.png</param>-->
+    <param name="vendor-icon">images/injection.png</param>
+    <param name="vendor-logo">images/injection.png</param>
+    <param name="atlassian-data-center-compatible">true</param>
+  </plugin-info>  
+
+  <!-- add our i18n resource
+  <resource type="i18n" name="i18n" location="local-color-custom-field"/>
+   add our web resources -->
+
+  <web-resource key="select-color-resources" name="Select Color Custom Fields Resources">
+    <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+    <resource type="download" name="colorPicker.css" location="/css/colorPicker.css"/>
+    <resource type="download" name="jquery.colorPicker.js" location="/js/jquery.colorPicker.js"/>
+    <resource type="download" name="arrow.png" location="/images/arrow.png"/>
+    <context>color-resources</context>
+    <context>atl.general</context>
+  </web-resource>
+
+  <customfield-type key="local-color-custom-field" name="Richter Color Custom Field" class="hu.local.plugins.jira.customfields.LocalColorCustomField">
+    <description>This field is like a single select list with a configurable list of colors.</description>
+    <resource type="velocity" name="view" location="/templates/view-color-select.vm"/>
+    <resource type="velocity" name="column-view" location="/templates/column-view-color-select.vm"/>
+    <resource type="velocity" name="edit" location="/templates/edit-color-select.vm"/>
+    <resource type="velocity" name="xml" location="/templates/xml-color-select.vm"/>
+    <resource type="download" name="customfieldpreview.png" location="/images/color-select.png"/>
+  </customfield-type>
+
+  <customfield-searcher key="local-color-searcher" name="Richter Color Custom Field Searcher" class="hu.local.plugins.jira.customfields.field.RichterColorSelectSearcher">
+    <description>The searcher for Select Color Custom Field</description>
+    <resource type="velocity" name="search" location="/templates/search-color-select.vm"/>
+    <resource type="velocity" name="view" location="/templates/view-searcher-color-select.vm"/>
+    <resource type="velocity" name="label" location="/templates/label-color-select.vm"/>
+    <valid-customfield-type package="hu.local.plugins.jira" key="local-color-custom-field"/>
+  </customfield-searcher>
+
+  <component name="Select Color Resolver" key="color-fields-color-resolver" class="hu.local.plugins.jira.customfields.service.impl.ColorResolverImpl">
+    <interface>hu.local.plugins.jira.customfields.service.ColorResolver</interface>
+  </component>
+  <component key="ComponentFactory" name="Component Factory" class="com.atlassian.jira.util.JiraComponentFactory">
+    <interface>com.atlassian.jira.util.ComponentFactory</interface>
+  </component>
+  <component key="ComponentLocator" name="Component Locator" class="com.atlassian.jira.util.JiraComponentLocator">
+    <interface>com.atlassian.jira.util.ComponentLocator</interface>
+  </component>
+
+
+
+
+  <!--********************************REGEX***********************************************************-->
+  <resource type="i18n" name="i18n" location="i18n.uniqueregex"/>
+  <!-- Custom Fields -->
+  <customfield-type key="richter-regex-cf" name="Richter regex custom field" class="hu.local.plugins.jira.customfields.field.RichterRegexCF">
+    <description>Custom Field that check uniqueness and matching regular expression.</description>
+    <resource type="velocity" name="view" location="/templates/field/view-uniqueregex.vm"/>
+    <resource type="velocity" name="column-view" location="/templates/field/column-view-uniqueregex.vm"/>
+    <resource type="velocity" name="xml" location="/templates/field/xml-uniqueregex.vm"/>
+    <resource type="velocity" name="edit" location="//templates/field/edit-uniqueregex.vm"/>
+    <resource type="download" name="customfieldpreview.png" location="/images/regexField.png"/>
+  </customfield-type>
+
+  <!-- Custom Field Searchers
+  <customfield-searcher key="richter-select-searcher" name="Exact Text Searcher" i18n-name-key="admin.customfield.searcher.exacttextsearcher.name" class="com.atlassian.jira.issue.customfields.searchers.ExactTextSearcher">
+    <description key="admin.customfield.searcher.exacttextsearcher.desc">Search for values exactly matching the input</description>
+    <resource type="velocity" name="search" location="templates/field/edit-searcher/search-basictext.vm"/>
+    <resource type="velocity" name="view" location="templates/field/view-searcher/view-searcher-basictext.vm"/>
+    <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="richter-regex-cf"/>
+  </customfield-searcher> -->
+
+  <customfield-searcher key="richter-regex-cf-textsearcher" name="Free Text Searcher" class="com.atlassian.jira.issue.customfields.searchers.TextSearcher">
+    <description>Search for values using a free text search.</description>
+    <resource type="velocity" name="search" location="/templates/regex-search-basictext.vm"/>
+    <resource type="velocity" name="view" location="/templates/regex-view-searcher-basictext.vm"/>
+    <valid-customfield-type package="hu.local.plugins.jira" key="richter-regex-cf"/>
+  </customfield-searcher>
+
+
+
+
+
+  <!-- Web Items -->
+  <web-section key="richter-regex-configuration-section" location="admin_plugins_menu">
+    <label key="hu.local.plugins.jira.richerregexfield.section"/>
+  </web-section>
+  <web-item key="richter-regex-configuration-settings" name="Configure Richter Regex Custom Fields" section="admin_plugins_menu/richter-regex-configuration-section" weight="95">
+    <label key="hu.local.plugins.jira.richerregexfield.settings.title">Configure Richter Regex Custom Fields</label>
+    <description key="hu.local.plugins.jira.richerregexfield.settings.desc">On this page you can see and configure all Richter Regex Custom Fields.</description>
+    <condition class="com.atlassian.jira.plugin.webfragment.conditions.JiraGlobalPermissionCondition"><param name="permission">admin</param></condition>
+    <link linkId="richter-regex-configuration-settings">/secure/RichterRegexConfig!default.jspa</link>
+  </web-item>
+  <web-item key="richter-regex-tester-action" name="Regex Tester" section="admin_plugins_menu/richter-regex-configuration-section" weight="95">
+    <label key="hu.local.plugins.jira.richerregexfield.tester.title">Regex Tester</label>
+    <description key="hu.local.plugins.jira.richerregexfield.settings.desc">On this page you can test Regex expression for fields.</description>
+    <condition class="com.atlassian.jira.plugin.webfragment.conditions.JiraGlobalPermissionCondition"><param name="permission">admin</param></condition>
+    <link linkId="richter-regex-tester-action">/secure/RichterRegexTesterAction!default.jspa</link>
+  </web-item>
+
+  <!-- WebWork1 -->
+  <webwork1 key="richter_regex_action" name="Richter regex fields configure action" class="java.lang.Object">
+    <actions>
+      <action name="hu.local.plugins.jira.customfields.action.RichterRegexConfig" alias="RichterRegexConfig">
+        <view name="input">/templates/action/richterregexconfig.vm</view>
+        <view name="success">/templates/action/richterregexconfig.vm</view>
+        <view name="permissionviolation">/secure/views/permissionviolation.jsp</view>
+        <view name="configure">/templates/action/uniqueregexconfigfield.vm</view>
+      </action>
+      <action name="hu.local.plugins.jira.customfields.action.RichterRegexFieldConfig" alias="RichterRegexFieldConfig">
+        <view name="input">/templates/action/uniqueregexconfigfield.vm</view>
+        <view name="success">/templates/action/uniqueregexconfigfield.vm</view>
+        <view name="permissionviolation">/secure/views/permissionviolation.jsp</view>
+      </action>
+      <action name="hu.local.plugins.jira.customfields.action.admin.RichterRegexTesterAction" alias="RichterRegexTesterAction">
+        <view name="input">/templates/action/admin/uniqueregextester.vm</view>
+        <view name="success">/templates/action/admin/uniqueregextester.vm</view>
+        <view name="permissionviolation">/secure/views/permissionviolation.jsp</view>
+      </action>
+      <action name="hu.local.plugins.jira.customfields.action.field.RichterRegexCFRegexConfigAction" alias="RichterRegexCFRegexConfigAction">
+        <view name="success">/templates/action/field/regexconfig.vm</view>
+        <view name="permissionviolation">/secure/views/permissionviolation.jsp</view>
+      </action>
+      <action name="hu.local.plugins.jira.customfields.field.UniqueRegexCFUniqueConfigAction" alias="UniqueRegexCFUniqueConfigAction">
+        <view name="success">/templates/action/field/uniqueconfig.vm</view>
+        <view name="permissionviolation">/secure/views/permissionviolation.jsp</view>
+      </action>
+    </actions>
+  </webwork1>
+
+  <!-- Components -->
+  <component key="richter-regex-manager" name="Manager of unique regex fields" class="hu.local.plugins.jira.customfields.manager.UniqueRegexMgrImpl">
+    <interface>hu.local.plugins.jira.customfields.manager.UniqueRegexMgr</interface>
+  </component>
+  <component key="richter-regex-regex-settings-manager" class="hu.local.plugins.jira.customfields.manager.impl.RegexSettingsManagerImpl" public="true">
+    <interface>hu.local.plugins.jira.customfields.manager.RegexSettingsManager</interface>
+  </component>
+  <component key="richter-regex-unique-settings-manager" class="hu.local.plugins.jira.customfields.manager.impl.UniqueSettingsManagerImpl" public="true">
+    <interface>hu.local.plugins.jira.customfields.manager.UniqueSettingsManager</interface>
+  </component>
+  <component-import key="pluginSettingsFactory">
+    <interface>com.atlassian.sal.api.pluginsettings.PluginSettingsFactory</interface>
+  </component-import>
+  <component-import key="applicationProperties">
+    <interface>com.atlassian.sal.api.ApplicationProperties</interface>
+  </component-import>
+
+
+</atlassian-plugin>

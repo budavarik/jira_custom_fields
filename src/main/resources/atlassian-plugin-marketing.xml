@@ -1,0 +1,19 @@
+<atlassian-plugin-marketing>
+    <compatibility>
+        <product name="jira" min="5.0" max="9.4.6"/>
+    </compatibility>
+
+    <logo image="images/logo.png"/>
+    <banner image="images/vc5.png"/>
+
+    <highlights>
+        <highlight image="images/vc3.png" cropped="/images/vc3.png"/>
+        <highlight image="images/vc4.png" cropped="/images/vc5.png"/>
+    </highlights>
+
+    <screenshots>
+        <screenshot image="images/vc1.png"/>
+        <screenshot image="images/vc2.png"/>
+	<screenshot image="images/vc3.png"/>
+    </screenshots>
+</atlassian-plugin-marketing>

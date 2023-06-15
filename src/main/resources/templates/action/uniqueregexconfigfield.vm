@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>$action.getTitle()</title>
+        <meta content="admin" name="decorator"/>
+        <meta content="admin_plugins_menu/richter-regex-configuration-section" name="admin.active.section">
+        <meta content="richter-regex-configuration-settings" name="admin.active.tab">
+        $webResourceManager.requireResource("jira.webresources:global-static")
+        $webResourceManager.requireResource("jira.webresources:jira-global")
+        $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
+    </head>
+    <body class="aui">
+        <section id="content" role="main">
+            <header class="aui-page-header">
+                <div class="aui-page-header-inner">
+                    <div class="aui-page-header-main">
+                        <h1>$action.getTitle()</h1>
+                        <p>$i18n.getText("hu.local.plugins.jira.richerregexfield.field.desc")</p>
+                    </div>
+                </div>
+            </header>
+            <div class="aui-page-panel">
+                <div class="aui-page-panel-inner">
+                    <section class="aui-page-panel-content">
+                        <form action="RichterRegexFieldConfig.jspa" method="post" class="aui">
+                            <input type="hidden" name="atl_token" value="${atl_token}"/>
+                            <input type="hidden" name="customFieldId" value="$customFieldId"/>
+                            <div class="field-group">
+                                <label for="regexclause">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.regex")</label>
+                                <input class="text" type="text" id="regexclause" name="regexclause" value="$!{regexclause}"/>
+                                #if($action.getErrors().containsKey("regexclause"))<div class="error">$action.getErrors().get("regexclause")</div>#end
+                                <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.regex.desc")</div>
+                            </div>
+                            <div class="field-group">
+                                <label for="regexerror">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.regexerror")</label>
+                                <textarea class="textarea" rows="5" cols="30" id="regexerror" name="regexerror">$!regexerror</textarea>
+                                #if($action.getErrors().containsKey("regexerror"))
+                                <div class="error">$action.getErrors().get("regexerror")</div>
+                                #end
+                                <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.regexerror.desc")</div>
+                            </div>
+                            <div class="field-group">
+                                <label for="jqlclause">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.jql")</label>
+                                <textarea class="textarea" rows="5" cols="30" id="jqlclause" name="jqlclause">$!{jqlclause}</textarea>
+                                #if($action.getErrors().containsKey("jqlclause"))
+                                <div class="error">$action.getErrors().get("jqlclause")</div>
+                                #end
+                                <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.jql.desc")</div>
+                            </div>
+                            <div class="field-group">
+                                <label for="jqlError">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.jqlerror")</label>
+                                <textarea class="textarea" rows="5" cols="30" id="jqlError" name="jqlError">$!{jqlError}</textarea>
+                                #if($action.getErrors().containsKey("jqlError"))
+                                <div class="error">$action.getErrors().get("jqlError")</div>
+                                #end
+                                <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.jqlerror.desc")</div>
+                            </div>
+                            <div class="field-group">
+                                <label for="targetcf">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.targetfield")</label>
+                                <select class="select" id="targetcf" name="targetcf">
+                                #foreach($cf in $action.getCustomFields())
+                                    <option #if($cf.getId() == $action.getDefaultTarget())selected="selected"#end value="$cf.getId()">$cf.getName()</option>
+                                #end
+                                </select>
+                                #if($action.getErrors().containsKey("targetcf"))
+                                <div class="error">$action.getErrors().get("targetcf")</div>
+                                #end
+                                <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.field.targetfield.desc")</div>
+                            </div>
+                            <div class="buttons-container">
+                                <div class="buttons">
+                                    <input class="button submit" type="submit" value='$i18n.getText("hu.local.plugins.jira.richerregexfield.field.save")'/>
+                                    <a class="cancel" href="RichterRegexConfig!default.jspa">
+                                        $i18n.getText("hu.local.plugins.jira.richerregexfield.field.cancel")
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

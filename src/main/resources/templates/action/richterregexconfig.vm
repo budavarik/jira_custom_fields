@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>$action.getText("hu.local.plugins.jira.richerregexfield.fields.title")</title>
+        <meta content="admin" name="decorator"/>
+        <meta content="admin_plugins_menu/richter-regex-configuration-section" name="admin.active.section">
+        <meta content="richter-regex-configuration-settings" name="admin.active.tab">
+        $webResourceManager.requireResource("jira.webresources:global-static")
+        $webResourceManager.requireResource("jira.webresources:jira-global")
+        $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
+    </head>
+    <body class="aui">
+        <section id="content" role="main">
+            <header class="aui-page-header">
+                <div class="aui-page-header-inner">
+                    <div class="aui-page-header-main">
+                        <h1>$i18n.getText("hu.local.plugins.jira.richerregexfield.fields.title")</h1>
+                        <p>$i18n.getText("hu.local.plugins.jira.richerregexfield.fields.desc")</p>
+                    </div>
+                </div>
+            </header>
+            <div class="aui-page-panel">
+                <div class="aui-page-panel-inner">
+                    <section class="aui-page-panel-content">
+                        <table class="aui">
+                            <thead>
+                                <tr>
+                                    <th id="customfieldid">$action.getText("hu.local.plugins.jira.richerregexfield.field.customfieldid")</th>
+                                    <th id="customfieldname">$action.getText("hu.local.plugins.jira.richerregexfield.field.customfieldname")</th>
+                                    <th id="regex">$action.getText("hu.local.plugins.jira.richerregexfield.field.regex")</th>
+                                    <th id="regexerror">$action.getText("hu.local.plugins.jira.richerregexfield.field.regexerror")</th>
+                                    <th id="jql">$action.getText("hu.local.plugins.jira.richerregexfield.field.jql")</th>
+                                    <th id="jql">$action.getText("hu.local.plugins.jira.richerregexfield.field.jqlerror")</th>
+                                    <th id="targetfield">$action.getText("hu.local.plugins.jira.richerregexfield.field.targetfield")</th>
+                                    <th id="actions">$action.getText("hu.local.plugins.jira.richerregexfield.field.actions")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                #foreach($data in $action.getDatas())
+                                <tr>
+                                    <td headers="customfieldid">$data.getCfKey()</td>
+                                    <td headers="customfieldname">$data.getCfName()</td>
+                                    <td headers="regex">$!data.getRegex()</td>
+                                    <td headers="regexerror">$!data.getRegexError()</td>
+                                    <td headers="jql">$!data.getJql()</td>
+                                    <td headers="jql">$!data.getUniqueError()</td>
+                                    <td headers="targetfield">$!data.getTargetCfName()</td>
+                                    <td headers="actions">
+                                        <a href="RichterRegexFieldConfig!default.jspa?customFieldId=$data.getCfKey()">$action.getText("hu.local.plugins.jira.richerregexfield.field.action.configure")</a>
+                                    </td>
+                                </tr>
+                                #end
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

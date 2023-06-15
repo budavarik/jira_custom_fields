@@ -1,0 +1,6 @@
+#disable_html_escaping()
+#if($value)
+    <customfieldvalue>
+        $xmlutils.escape("<div style='display:inline-block; background-color:$!value; width:50px; height:16px; text-align:left; border: thin solid #ccc'></div>")
+    </customfieldvalue>
+#end
