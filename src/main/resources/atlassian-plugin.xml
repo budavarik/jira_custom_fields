@@ -68,7 +68,17 @@
     <resource type="download" name="customfieldpreview.png" location="/images/regexField.png"/>
   </customfield-type>
 
-  <!-- Custom Field Searchers
+  
+
+  <customfield-searcher key="richter-regex-cf-textsearcher" name="Exact Text Searcher" class="com.atlassian.jira.issue.customfields.searchers.ExactTextSearcher">
+    <description>Search for values exactly matching the input</description>
+    <resource type="velocity" name="search" location="/templates/regex-search-basictext.vm"/>
+    <resource type="velocity" name="view" location="/templates/regex-view-searcher-basictext.vm"/>
+    <valid-customfield-type package="hu.local.plugins.jira" key="richter-regex-cf"/>
+  </customfield-searcher>
+
+
+  <!-- Ez nem működött, de ez lenne a jó
   <customfield-searcher key="richter-select-searcher" name="Exact Text Searcher" i18n-name-key="admin.customfield.searcher.exacttextsearcher.name" class="com.atlassian.jira.issue.customfields.searchers.ExactTextSearcher">
     <description key="admin.customfield.searcher.exacttextsearcher.desc">Search for values exactly matching the input</description>
     <resource type="velocity" name="search" location="templates/field/edit-searcher/search-basictext.vm"/>
@@ -76,13 +86,14 @@
     <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="richter-regex-cf"/>
   </customfield-searcher> -->
 
+
+  <!-- Custom Field Searchers Működik, de ~ jellel
   <customfield-searcher key="richter-regex-cf-textsearcher" name="Free Text Searcher" class="com.atlassian.jira.issue.customfields.searchers.TextSearcher">
     <description>Search for values using a free text search.</description>
     <resource type="velocity" name="search" location="/templates/regex-search-basictext.vm"/>
     <resource type="velocity" name="view" location="/templates/regex-view-searcher-basictext.vm"/>
     <valid-customfield-type package="hu.local.plugins.jira" key="richter-regex-cf"/>
-  </customfield-searcher>
-
+  </customfield-searcher> -->
 
 
 

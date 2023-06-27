@@ -4,7 +4,7 @@
     <groupId>hu.local.plugins.jira</groupId>
     <artifactId>local-color-custom-field</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>0.3.0-9</version>
+    <version>0.4.1-9</version>
 
     <organization>
         <name>Budavári Károly, based on the work of Andrey Markelov</name>
@@ -66,8 +66,8 @@
     </dependencies>
 
     <properties>
-        <!--<jira.version>8.10.1</jira.version>-->
-        <jira.version>9.4.6</jira.version>
+        <jira.version>8.20.10</jira.version>
+        <!--<jira.version>9.4.6</jira.version>-->
         <jira.data.version>${jira.version}</jira.data.version>
         <!--<amps.version>8.10.1</amps.version>-->
         <amps.version>8.1.0</amps.version>
