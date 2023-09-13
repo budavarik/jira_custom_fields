@@ -1,4 +1,4 @@
-$webResourceManager.requireResource("hu.local.plugins.colorfields:color-resources")
+$webResourceManager.requireResource("hu.plugins.colorfields:color-resources")
 #disable_html_escaping()
 #customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
 <select class="select cf-select" name="$customField.id" id="$customField.id">

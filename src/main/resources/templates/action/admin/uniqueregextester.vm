@@ -1,9 +1,9 @@
 <html>
 <head>
-    <title>$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.title")</title>
+    <title>$i18n.getText("hu.plugins.jira.regexfield.tester.title")</title>
     <meta content="admin" name="decorator"/>
-    <meta content="admin_plugins_menu/richter-regex-configuration-section" name="admin.active.section"/>
-    <meta content="richter-regex-tester-action" name="admin.active.tab"/>
+    <meta content="admin_plugins_menu/regex-configuration-section" name="admin.active.section"/>
+    <meta content="regex-tester-action" name="admin.active.tab"/>
     $webResourceManager.requireResource("jira.webresources:global-static")
     $webResourceManager.requireResource("jira.webresources:jira-global")
     $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
@@ -13,8 +13,8 @@
     <header class="aui-page-header">
         <div class="aui-page-header-inner">
             <div class="aui-page-header-main">
-                <h1>$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.title")</h1>
-                <p>$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.desc")</p>
+                <h1>$i18n.getText("hu.plugins.jira.regexfield.tester.title")</h1>
+                <p>$i18n.getText("hu.plugins.jira.regexfield.tester.desc")</p>
             </div>
         </div>
     </header>
@@ -25,7 +25,7 @@
                 <div class="aui-message aui-message-error">
                     <p class="title">
                         <span class="aui-icon icon-error"></span>
-                        <strong>$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.error")</strong>
+                        <strong>$i18n.getText("hu.plugins.jira.regexfield.tester.error")</strong>
                     </p>
                     #foreach($error in $action.getErrorMessages())
                     <p>${error}</p>
@@ -40,27 +40,27 @@
                     </p>
                 </div>
                 #end
-                <form action="RichterRegexTesterAction.jspa" method="post" class="aui">
+                <form action="RegexTesterAction.jspa" method="post" class="aui">
                     <input type="hidden" name="atl_token" value="${atl_token}"/>
                     <div class="field-group">
-                        <label for="regex">$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.regex")</label>
+                        <label for="regex">$i18n.getText("hu.plugins.jira.regexfield.tester.regex")</label>
                         <input class="text" type="text" id="regex" name="regex" value="$!{regex}"/>
                         #if($action.getErrors().containsKey("regex"))
                             <div class="error">$action.getErrors().get("regex")</div>
                         #end
-                        <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.regex.desc")</div>
+                        <div class="description">$i18n.getText("hu.plugins.jira.regexfield.tester.regex.desc")</div>
                     </div>
                     <div class="field-group">
-                        <label for="expression">$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.teststring")</label>
+                        <label for="expression">$i18n.getText("hu.plugins.jira.regexfield.tester.teststring")</label>
                         <input class="text" type="text" id="expression" name="expression" value="$!{expression}"/>
                         #if($action.getErrors().containsKey("expression"))
                             <div class="error">$action.getErrors().get("expression")</div>
                         #end
-                        <div class="description">$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.teststring.desc")</div>
+                        <div class="description">$i18n.getText("hu.plugins.jira.regexfield.tester.teststring.desc")</div>
                     </div>
                     <div class="buttons-container">
                         <div class="buttons">
-                            <input class="button submit" type="submit" value='$i18n.getText("hu.local.plugins.jira.richerregexfield.tester.test")'/>
+                            <input class="button submit" type="submit" value='$i18n.getText("hu.plugins.jira.regexfield.tester.test")'/>
                         </div>
                     </div>
                 </form>

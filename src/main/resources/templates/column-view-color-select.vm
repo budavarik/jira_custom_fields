@@ -1,4 +1,4 @@
-$webResourceManager.requireResource("hu.local.plugins.colorfields:color-resources")
+$webResourceManager.requireResource("hu.plugins.colorfields:color-resources")
 #if($value)
     #if(${displayParameters.excel_view})
         <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:left; border: thin solid #ccc">$!colorHex</div>
