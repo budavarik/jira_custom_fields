@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields;
+package hu.plugins.jira.customfields;
 
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.customfields.impl.SelectCFType;
@@ -8,7 +8,7 @@ import com.atlassian.jira.issue.customfields.persistence.CustomFieldValuePersist
 import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import com.atlassian.jira.issue.fields.rest.json.beans.JiraBaseUrls;
-import hu.local.plugins.jira.customfields.service.ColorResolver;
+import hu.plugins.jira.customfields.service.ColorResolver;
 
 import javax.annotation.Nonnull;
 import java.util.Map;

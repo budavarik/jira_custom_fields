@@ -33,15 +33,15 @@ import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.trim;
 
-public class RichterRegexCF extends GenericTextCFType implements ProjectImportableCustomField {
-    private static Log log = LogFactory.getLog(RichterRegexCF.class);
+public class RegexCF extends GenericTextCFType implements ProjectImportableCustomField {
+    private static Log log = LogFactory.getLog(RegexCF.class);
 
     private final CustomFieldManager cfMgr;
     private final SearchService searchService;
     private final UniqueRegexMgr urMgr;
     private final JiraAuthenticationContext authenticationContext;
 
-    public RichterRegexCF(
+    public RegexCF(
             CustomFieldValuePersister customFieldValuePersister,
             GenericConfigManager genericConfigManager,
             TextFieldCharacterLengthValidator textFieldCharacterLengthValidator,

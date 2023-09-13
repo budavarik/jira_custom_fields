@@ -22,7 +22,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.trim;
 
 @SupportedMethods({RequestMethod.GET, RequestMethod.POST})
-public class RichterRegexFieldConfig extends JiraWebActionSupport {
+public class RegexFieldConfig extends JiraWebActionSupport {
     //private static final long serialVersionUID = -727825112402972172L;
     private static final long serialVersionUID = -7278512402972172L;
 
@@ -38,7 +38,7 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
     private String jqlclause;
     private String targetcf;
 
-    public RichterRegexFieldConfig(
+    public RegexFieldConfig(
             UniqueRegexMgr urMgr,
             CustomFieldManager cfMgr,
             GlobalPermissionManager globalPermissionManager,
@@ -57,12 +57,12 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
         }
 
         if (customFieldId == null || customFieldId.length() == 0) {
-            return getRedirect("RichterRegexConfig!default.jspa");
+            return getRedirect("RegexConfig!default.jspa");
         }
 
         CustomField field = cfMgr.getCustomFieldObject(customFieldId);
         if (field == null) {
-            return getRedirect("RichterRegexConfig!default.jspa");
+            return getRedirect("RegexConfig!default.jspa");
         }
 
         CFData data = urMgr.getCFData(customFieldId);
@@ -86,17 +86,17 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
         urMgr.setCfRegex(customFieldId, trim(regexclause));
         urMgr.setCfRegexError(customFieldId, regexerror);
         urMgr.setCfTarget(customFieldId, targetcf);
-        return getRedirect("RichterRegexConfig!default.jspa?saved=true");
+        return getRedirect("RegexConfig!default.jspa?saved=true");
     }
 
     @Override
     protected void doValidation() {
         if (!UrUtils.checkJQL(jqlclause)) {
-            addError("jqlclause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.field.jql.error.invalid"));
+            addError("jqlclause", authenticationContext.getI18nHelper().getText("huregex-tester-action-regex-tester-actionplugins.jiraregex-tester-actionregexfield.field.jql.error.invalid"));
         }
 
         if (!UrUtils.checkRegex(regexclause)) {
-            addError("regexclause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.field.regex.error.invalid"));
+            addError("regexclause", authenticationContext.getI18nHelper().getText("huregex-tester-action-regex-tester-actionplugins.jiraregex-tester-actionregexfield.field.regex.error.invalid"));
         }
 
         super.doValidation();
@@ -131,7 +131,7 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
     }
 
     public String getTitle() {
-        return authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.fields.title", UrUtils.getCfName(cfMgr, customFieldId));
+        return authenticationContext.getI18nHelper().getText("huregex-tester-action-regex-tester-actionplugins.jiraregex-tester-actionregexfield.fields.title", UrUtils.getCfName(cfMgr, customFieldId));
     }
 
     public void setCustomFieldId(String customFieldId) {

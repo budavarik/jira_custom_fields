@@ -11,12 +11,12 @@ import hu.plugins.jira.customfields.manager.RegexSettingsManager;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RichterRegexCFConfig implements FieldConfigItemType {
+public class RegexCFConfig implements FieldConfigItemType {
     private final JiraAuthenticationContext jiraAuthenticationContext;
     private final VelocityManager velocityManager;
     private final RegexSettingsManager regexSettingsManager;
 
-    public RichterRegexCFConfig(
+    public RegexCFConfig(
             JiraAuthenticationContext jiraAuthenticationContext,
             VelocityManager velocityManager,
             RegexSettingsManager regexSettingsManager) {
@@ -42,7 +42,7 @@ public class RichterRegexCFConfig implements FieldConfigItemType {
 
     @Override
     public String getObjectKey() {
-        return "RichterRegexCFConfig";
+        return "RegexCFConfig";
     }
 
     @Override
@@ -53,6 +53,6 @@ public class RichterRegexCFConfig implements FieldConfigItemType {
 
     @Override
     public String getBaseEditUrl() {
-        return "RichterRegexCFRegexConfigAction.jspa";
+        return "RegexCFRegexConfigAction.jspa";
     }
 }

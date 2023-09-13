@@ -1,7 +1,7 @@
-package hu.local.plugins.jira.customfields.manager;
+package hu.plugins.jira.customfields.manager;
 
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
-import hu.local.plugins.jira.customfields.model.CFData;
+import hu.plugins.jira.customfields.model.CFData;
 
 public class UniqueRegexMgrImpl implements UniqueRegexMgr {
     private static final String PLUGIN_KEY = "UNIQUE_REGEX_CF";

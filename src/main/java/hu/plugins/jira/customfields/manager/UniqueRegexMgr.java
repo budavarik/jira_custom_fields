@@ -1,6 +1,6 @@
-package hu.local.plugins.jira.customfields.manager;
+package hu.plugins.jira.customfields.manager;
 
-import hu.local.plugins.jira.customfields.model.CFData;
+import hu.plugins.jira.customfields.model.CFData;
 
 public interface UniqueRegexMgr {
 

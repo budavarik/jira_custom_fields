@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.manager;
+package hu.plugins.jira.customfields.manager;
 
 public interface RegexSettingsManager {
 }

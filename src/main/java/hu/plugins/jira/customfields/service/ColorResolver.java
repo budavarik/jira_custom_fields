@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.service;
+package hu.plugins.jira.customfields.service;
 
 /**
  * Convert user entered color to HEX.

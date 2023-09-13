@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>hu.local.plugins.jira</groupId>
-    <artifactId>local-color-custom-field</artifactId>
+    <groupId>hu.plugins.jira</groupId>
+    <artifactId>custom-field</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>0.4.1-9</version>
+    <version>0.2.0-9</version>
 
     <organization>
-        <name>Budavári Károly, based on the work of Andrey Markelov</name>
-        <url>https://richter.hu</url>
+        <name>Made based on the work of Károly Budavári Andrey Markelov Color custom Fields and Unique Reges Custom Field</name>
+        <url>https://crossapp.hu</url>
     </organization>
 
-    <name>Richter Local Custom Fields</name>
-    <description>This provides fields which are displayed as colored areas.</description>
+    <name>Regex and Color Custom Fields</name>
+    <description>Regex and Color custom fields</description>
 
     <build>
         <plugins>
@@ -66,11 +66,11 @@
     </dependencies>
 
     <properties>
-        <jira.version>8.20.10</jira.version>
-        <!--<jira.version>9.4.6</jira.version>-->
+        <!--<jira.version>8.20.10</jira.version>-->
+        <jira.version>9.4.6</jira.version>
         <jira.data.version>${jira.version}</jira.data.version>
-        <!--<amps.version>8.10.1</amps.version>-->
-        <amps.version>8.1.0</amps.version>
+        <amps.version>8.10.1</amps.version>
+        <!--<amps.version>8.1.0</amps.version>-->
         <useFastdevCli>false</useFastdevCli>
         <javax.servlet.version>2.3</javax.servlet.version>
 

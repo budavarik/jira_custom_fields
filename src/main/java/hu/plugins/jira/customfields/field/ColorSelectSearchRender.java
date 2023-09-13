@@ -14,10 +14,10 @@ import webwork.action.Action;
 
 import java.util.Map;
 
-public class RichterColorSelectSearchRender extends MultiSelectCustomFieldSearchRenderer {
+public class ColorSelectSearchRender extends MultiSelectCustomFieldSearchRenderer {
     private final ColorResolver colorResolver;
 
-    public RichterColorSelectSearchRender(
+    public ColorSelectSearchRender(
             ClauseNames clauseNames,
             CustomFieldSearcherModuleDescriptor customFieldSearcherModuleDescriptor,
             CustomField customField,

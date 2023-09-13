@@ -1,8 +1,8 @@
-package hu.local.plugins.jira.customfields.manager.impl;
+package hu.plugins.jira.customfields.manager.impl;
 
 import com.atlassian.sal.api.pluginsettings.PluginSettings;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
-import hu.local.plugins.jira.customfields.manager.RegexSettingsManager;
+import hu.plugins.jira.customfields.manager.RegexSettingsManager;
 
 public class RegexSettingsManagerImpl implements RegexSettingsManager {
     private static final String PLUGIN_KEY = "UniqueRegexCFRegex";

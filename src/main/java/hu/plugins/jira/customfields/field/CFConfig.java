@@ -11,12 +11,12 @@ import hu.plugins.jira.customfields.manager.UniqueSettingsManager;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RichterCFConfig implements FieldConfigItemType {
+public class CFConfig implements FieldConfigItemType {
     private final JiraAuthenticationContext jiraAuthenticationContext;
     private final VelocityManager velocityManager;
     private final UniqueSettingsManager uniqueSettingsManager;
 
-    public RichterCFConfig(
+    public CFConfig(
             JiraAuthenticationContext jiraAuthenticationContext,
             VelocityManager velocityManager,
             UniqueSettingsManager uniqueSettingsManager) {
@@ -42,7 +42,7 @@ public class RichterCFConfig implements FieldConfigItemType {
 
     @Override
     public String getObjectKey() {
-        return "RichterCFConfig";
+        return "CFConfig";
     }
 
     @Override
@@ -53,6 +53,6 @@ public class RichterCFConfig implements FieldConfigItemType {
 
     @Override
     public String getBaseEditUrl() {
-        return "RichterRegexCFUniqueConfigAction.jspa";
+        return "RegexCFUniqueConfigAction.jspa";
     }
 }

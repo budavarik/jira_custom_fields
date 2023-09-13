@@ -17,13 +17,13 @@ import com.atlassian.jira.util.JiraComponentLocator;
 import com.atlassian.jira.web.FieldVisibilityManager;
 import hu.plugins.jira.customfields.service.ColorResolver;
 
-public class RichterColorSelectSearcher extends MultiSelectSearcher {
+public class ColorSelectSearcher extends MultiSelectSearcher {
     private volatile SearchRenderer searchRenderer;
     private FieldVisibilityManager fieldVisibilityManager;
     private JqlSelectOptionsUtil jqlSelectOptionsUtil;
     private final ColorResolver colorResolver;
 
-    public RichterColorSelectSearcher(
+    public ColorSelectSearcher(
             FieldVisibilityManager fieldVisibilityManager,
             OptionsManager optionsManager,
             FieldConfigSchemeManager fieldConfigSchemeManager,
@@ -43,7 +43,7 @@ public class RichterColorSelectSearcher extends MultiSelectSearcher {
 
     public void init(final CustomField field) {
         super.init(field);
-        searchRenderer = new RichterColorSelectSearchRender(
+        searchRenderer = new ColorSelectSearchRender(
                 field.getClauseNames(),
                 getDescriptor(),
                 field,

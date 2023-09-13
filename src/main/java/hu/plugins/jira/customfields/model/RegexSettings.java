@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.model;
+package hu.plugins.jira.customfields.model;
 
 public class RegexSettings {
     /**

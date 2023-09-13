@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.util;
+package hu.plugins.jira.customfields.util;
 
 import java.awt.*;
 import java.util.HashMap;

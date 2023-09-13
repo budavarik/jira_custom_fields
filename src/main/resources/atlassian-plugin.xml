@@ -26,7 +26,7 @@
     <context>atl.general</context>
   </web-resource>
 
-  <customfield-type key="color-custom-field" name=" Color Custom Field" class="hu.plugins.jira.customfields.LocalColorCustomField">
+  <customfield-type key="color-custom-field" name="Color Custom Field" class="hu.plugins.jira.customfields.LocalColorCustomField">
     <description>This field is like a single select list with a configurable list of colors.</description>
     <resource type="velocity" name="view" location="/templates/view-color-select.vm"/>
     <resource type="velocity" name="column-view" location="/templates/column-view-color-select.vm"/>
@@ -59,7 +59,7 @@
   <!--********************************REGEX***********************************************************-->
   <resource type="i18n" name="i18n" location="i18n.uniqueregex"/>
   <!-- Custom Fields -->
-  <customfield-type key="regex-cf" name=" regex custom field" class="hu.plugins.jira.customfields.field.RegexCF">
+  <customfield-type key="regex-cf" name="Regex Custom Field" class="hu.plugins.jira.customfields.field.RegexCF">
     <description>Custom Field that check uniqueness and matching regular expression.</description>
     <resource type="velocity" name="view" location="/templates/field/view-uniqueregex.vm"/>
     <resource type="velocity" name="column-view" location="/templates/field/column-view-uniqueregex.vm"/>
@@ -102,9 +102,9 @@
   <web-section key="regex-configuration-section" location="admin_plugins_menu">
     <label key="hu.plugins.jira.regexfield.section"/>
   </web-section>
-  <web-item key="regex-configuration-settings" name="Configure  Regex Custom Fields" section="admin_plugins_menu/regex-configuration-section" weight="95">
-    <label key="hu.plugins.jira.regexfield.settings.title">Configure  Regex Custom Fields</label>
-    <description key="hu.plugins.jira.regexfield.settings.desc">On this page you can see and configure all  Regex Custom Fields.</description>
+  <web-item key="regex-configuration-settings" name="Configure Regex Custom Fields" section="admin_plugins_menu/regex-configuration-section" weight="95">
+    <label key="hu.plugins.jira.regexfield.settings.title">Configure Regex Custom Fields</label>
+    <description key="hu.plugins.jira.regexfield.settings.desc">On this page you can see and configure all Regex Custom Fields.</description>
     <condition class="com.atlassian.jira.plugin.webfragment.conditions.JiraGlobalPermissionCondition"><param name="permission">admin</param></condition>
     <link linkId="regex-configuration-settings">/secure/RegexConfig!default.jspa</link>
   </web-item>

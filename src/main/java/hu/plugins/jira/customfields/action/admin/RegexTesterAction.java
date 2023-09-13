@@ -1,7 +1,6 @@
 package hu.plugins.jira.customfields.action.admin;
 
 import com.atlassian.jira.security.xsrf.RequiresXsrfCheck;
-import com.atlassian.jira.web.action.JiraWebActionSupport;
 
 import java.util.regex.Pattern;
 
@@ -12,10 +11,9 @@ import com.atlassian.jira.security.request.SupportedMethods;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import webwork.action.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @SupportedMethods({RequestMethod.GET, RequestMethod.POST})
-public class RichterRegexTesterAction extends JiraWebActionSupport {
+public class RegexTesterAction extends JiraWebActionSupport {
     private static final String NOT_SET = "NOTSET";
 
     private String regex;
@@ -53,12 +51,12 @@ public class RichterRegexTesterAction extends JiraWebActionSupport {
         matched = NOT_SET;
 
         if (regex == null || regex.isEmpty()) {
-            addError("regex", getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.tester.regex.error.empty"));
+            addError("regex", getText("huregex-tester-action-regex-tester-actionplugins.jiraregex-tester-actionregexfield.tester.regex.error.empty"));
         } else {
             try {
                 Pattern.compile(regex);
             } catch (Exception ex) {
-                addError("regex", getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.tester.regex.error.invalid"));
+                addError("regex", getText("huregex-tester-action-regex-tester-actionplugins.jiraregex-tester-actionregexfield.tester.regex.error.invalid"));
             }
         }
 

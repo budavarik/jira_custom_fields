@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.utils;
+package hu.plugins.jira.customfields.utils;
 
 import com.atlassian.jira.bc.issue.search.SearchService;
 import com.atlassian.jira.component.ComponentAccessor;
