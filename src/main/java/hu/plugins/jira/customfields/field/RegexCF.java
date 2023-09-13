@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.field;
+package hu.plugins.jira.customfields.field;
 
 import com.atlassian.jira.bc.issue.search.SearchService;
 import com.atlassian.jira.imports.project.customfield.ProjectImportableCustomField;
@@ -18,11 +18,11 @@ import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.util.ErrorCollection;
 import com.atlassian.jira.web.bean.PagerFilter;
+import hu.plugins.jira.customfields.manager.UniqueRegexMgr;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import hu.local.plugins.jira.customfields.manager.UniqueRegexMgr;
-import hu.local.plugins.jira.customfields.model.CFData;
+import hu.plugins.jira.customfields.model.CFData;
 import webwork.action.ActionContext;
 
 import javax.servlet.http.HttpServletRequest;

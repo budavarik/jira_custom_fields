@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.field;
+package hu.plugins.jira.customfields.field;
 
 import com.atlassian.jira.config.ConstantsManager;
 import com.atlassian.jira.issue.customfields.MultiSelectCustomFieldValueProvider;
@@ -15,7 +15,7 @@ import com.atlassian.jira.security.PermissionManager;
 import com.atlassian.jira.util.JiraComponentFactory;
 import com.atlassian.jira.util.JiraComponentLocator;
 import com.atlassian.jira.web.FieldVisibilityManager;
-import  hu.local.plugins.jira.customfields.service.ColorResolver;
+import hu.plugins.jira.customfields.service.ColorResolver;
 
 public class RichterColorSelectSearcher extends MultiSelectSearcher {
     private volatile SearchRenderer searchRenderer;

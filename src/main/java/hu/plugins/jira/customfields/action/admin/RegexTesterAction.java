@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.action.admin;
+package hu.plugins.jira.customfields.action.admin;
 
 import com.atlassian.jira.security.xsrf.RequiresXsrfCheck;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
@@ -53,12 +53,12 @@ public class RichterRegexTesterAction extends JiraWebActionSupport {
         matched = NOT_SET;
 
         if (regex == null || regex.isEmpty()) {
-            addError("regex", getText("hu.local.plugins.jira.richerregexfield.tester.regex.error.empty"));
+            addError("regex", getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.tester.regex.error.empty"));
         } else {
             try {
                 Pattern.compile(regex);
             } catch (Exception ex) {
-                addError("regex", getText("hu.local.plugins.jira.richerregexfield.tester.regex.error.invalid"));
+                addError("regex", getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.tester.regex.error.invalid"));
             }
         }
 

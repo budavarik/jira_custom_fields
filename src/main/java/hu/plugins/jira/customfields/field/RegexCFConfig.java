@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.field;
+package hu.plugins.jira.customfields.field;
 
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.fields.config.FieldConfig;
@@ -6,7 +6,7 @@ import com.atlassian.jira.issue.fields.config.FieldConfigItemType;
 import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.velocity.VelocityManager;
-import hu.local.plugins.jira.customfields.manager.RegexSettingsManager;
+import hu.plugins.jira.customfields.manager.RegexSettingsManager;
 
 import java.util.HashMap;
 import java.util.Map;

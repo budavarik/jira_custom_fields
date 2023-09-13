@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.action;
+package hu.plugins.jira.customfields.action;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,18 +8,16 @@ import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.security.GlobalPermissionManager;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.security.xsrf.RequiresXsrfCheck;
-import com.atlassian.jira.web.action.JiraWebActionSupport;
-import hu.local.plugins.jira.customfields.field.RichterRegexCF;
-import hu.local.plugins.jira.customfields.manager.UniqueRegexMgr;
-import hu.local.plugins.jira.customfields.model.CFData;
-import hu.local.plugins.jira.customfields.utils.UrUtils;
+import hu.plugins.jira.customfields.fieldrichter-regex-tester-actionRegexCF;
+import hu.plugins.jira.customfields.manager.UniqueRegexMgr;
+import hu.plugins.jira.customfields.model.CFData;
+import hu.plugins.jira.customfields.utils.UrUtils;
 
 import com.atlassian.jira.security.request.RequestMethod;
 import com.atlassian.jira.security.request.SupportedMethods;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import webwork.action.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 import static com.atlassian.jira.permission.GlobalPermissionKey.ADMINISTER;
 
@@ -106,10 +104,10 @@ public class RichterRegexConfig extends JiraWebActionSupport {
     protected void doValidation() {
         super.doValidation();
         if (!UrUtils.checkJQL(jqlClause)) {
-            addError("jqlClause", authenticationContext.getI18nHelper().getText("hu.local.plugins.jira.richerregexfield.admin.configuration.edit.jqlClause.error.invalid"));
+            addError("jqlClause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.admin.configuration.edit.jqlClause.error.invalid"));
         }
         if (!UrUtils.checkRegex(regexClause)) {
-            addError("regexClause", authenticationContext.getI18nHelper().getText("hu.local.plugins.jira.richerregexfield.admin.configuration.edit.regexClause.error.invalid"));
+            addError("regexClause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.admin.configuration.edit.regexClause.error.invalid"));
         }
     }
 

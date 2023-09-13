@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.field;
+package hu.plugins.jira.customfields.field;
 
 import com.atlassian.jira.issue.customfields.CustomFieldValueProvider;
 import com.atlassian.jira.issue.customfields.searchers.renderer.MultiSelectCustomFieldSearchRenderer;
@@ -9,7 +9,7 @@ import com.atlassian.jira.issue.transport.FieldValuesHolder;
 import com.atlassian.jira.jql.util.JqlSelectOptionsUtil;
 import com.atlassian.jira.plugin.customfield.CustomFieldSearcherModuleDescriptor;
 import com.atlassian.jira.web.FieldVisibilityManager;
-import hu.local.plugins.jira.customfields.service.ColorResolver;
+import hu.plugins.jira.customfields.service.ColorResolver;
 import webwork.action.Action;
 
 import java.util.Map;

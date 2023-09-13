@@ -1,4 +1,4 @@
-package hu.local.plugins.jira.customfields.action;
+package hu.plugins.jira.customfields.action;
 
 import com.atlassian.jira.issue.CustomFieldManager;
 import com.atlassian.jira.issue.fields.CustomField;
@@ -6,16 +6,14 @@ import com.atlassian.jira.security.GlobalPermissionManager;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.security.xsrf.RequiresXsrfCheck;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
-import hu.local.plugins.jira.customfields.manager.UniqueRegexMgr;
-import hu.local.plugins.jira.customfields.model.CFData;
-import hu.local.plugins.jira.customfields.utils.UrUtils;
+import hu.plugins.jira.customfields.manager.UniqueRegexMgr;
+import hu.plugins.jira.customfields.model.CFData;
+import hu.plugins.jira.customfields.utils.UrUtils;
 
 import com.atlassian.jira.security.request.RequestMethod;
 import com.atlassian.jira.security.request.SupportedMethods;
-import com.atlassian.jira.web.action.JiraWebActionSupport;
 import webwork.action.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 import java.util.List;
 
@@ -94,11 +92,11 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
     @Override
     protected void doValidation() {
         if (!UrUtils.checkJQL(jqlclause)) {
-            addError("jqlclause", authenticationContext.getI18nHelper().getText("hu.local.plugins.jira.richerregexfield.field.jql.error.invalid"));
+            addError("jqlclause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.field.jql.error.invalid"));
         }
 
         if (!UrUtils.checkRegex(regexclause)) {
-            addError("regexclause", authenticationContext.getI18nHelper().getText("hu.local.plugins.jira.richerregexfield.field.regex.error.invalid"));
+            addError("regexclause", authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.field.regex.error.invalid"));
         }
 
         super.doValidation();
@@ -133,7 +131,7 @@ public class RichterRegexFieldConfig extends JiraWebActionSupport {
     }
 
     public String getTitle() {
-        return authenticationContext.getI18nHelper().getText("hu.local.plugins.jira.richerregexfield.fields.title", UrUtils.getCfName(cfMgr, customFieldId));
+        return authenticationContext.getI18nHelper().getText("hurichter-regex-tester-action-regex-tester-actionplugins.jirarichter-regex-tester-actionregexfield.fields.title", UrUtils.getCfName(cfMgr, customFieldId));
     }
 
     public void setCustomFieldId(String customFieldId) {
